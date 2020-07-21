@@ -1,4 +1,8 @@
 const server = 'http://api.haxors.or.id';
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+
+admin.initializeApp();
 
 export default {
   asyncData ({ params, error }) {
@@ -11,5 +15,15 @@ export default {
       })
   }
 }
+
+exports.getBacotan = functions.https.onRequest((req, res) => {
+    admin.firestore().collection('bacot').get().then(data => {
+        let bacotan = [];
+        data.forEach(doc => {
+            bacotan.push(doc.data());
+        });
+        return res.json(bacotan);
+    }).catch(err => console.error(err));
+})
 
 server.run();
