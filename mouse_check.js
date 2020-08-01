@@ -1,5 +1,7 @@
 window.Mouse = window.Mouse || {};
 
+const appPath = '';
+
 (function($, Mouse) {
 
     var NUM_MOVES_TO_NOTIFY = 10,
