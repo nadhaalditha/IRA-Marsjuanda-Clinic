@@ -1,4 +1,4 @@
-const server = 'http://api.haxors.or.id';
+const server = '';
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
